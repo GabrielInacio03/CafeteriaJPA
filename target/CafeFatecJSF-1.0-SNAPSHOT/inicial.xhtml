@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="./WEB-INF/templates/paginaMestre.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="tagTile">
+        Bem vindos!
+    </ui:define>
+
+    <ui:define name="conteudoPG">
+        <div class="ui-g" id="corpo">
+            <div class="ui-g-12 ui-md-3 ui-lg-5"></div>
+            <div class="ui-g-12 ui-md-6 ui-lg-7">
+                <p:panel header="SAIR">
+                    <p:outputLabel value="Bem Vindo #{userSessao.nome}!"/>
+                    <h:form>
+                        <p:commandButton id="btnLogout" value="Sair" icon="pi pi-sign-in"
+                                         action="#{loginBean.logout}"
+                                         update="@all"/>
+                    </h:form>
+                </p:panel>
+            </div>
+            <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+        </div>
+    </ui:define>
+</ui:composition>
+
+

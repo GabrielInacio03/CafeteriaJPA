@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+        <ui:insert name="tagTile"></ui:insert>
+        </title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+        <h:outputStylesheet name="layout.css" library="css"/>
+        <h:outputScript name="locale.js" library="js"/>
+    </h:head>
+    <h:body>
+        <div class="ui-g">
+            <div class="ui-g-1 ui-md-1 ui-lg-1"></div>
+            <div class="ui-g-10 ui-md-10 ui-lg-10">
+                <!-- banner -->
+                <ui:include src="banner.xhtml"/>
+                <!-- aqui entra o menu -->
+                <ui:include src="menu.xhtml"/>
+                <p:panel>
+                    <ui:insert name="conteudoPG"></ui:insert>
+                </p:panel>
+                <!-- aqui estava o rodape -->
+                <ui:include src="rodape.xhtml"/>
+            </div>
+            <div class="ui-g-1 ui-md-1 ui-lg-1"></div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 template="./WEB-INF/templates/paginaMestre.xhtml"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="tagTile">
+        Cadastro de Mesa
+    </ui:define>
+
+    <ui:define name="conteudoPG">
+        <h:form id="formulario" prependId="false">
+            <p:growl id="msgGeral" globalOnly="true" showDetail="true"/>
+            <p:tabView id="tabs" activeIndex="#{mesaBean.idTab}">
+                <p:tab title="Lista" id="lista">
+                    <p:dataTable value="#{mesaBean.listaMesas}"
+                                 var="mesa" rows="10"
+                                 paginator="true" paginatorPosition="bottom"
+                                 emptyMessage="Não há mesas cadastradas">
+                        <f:facet name="header">Lista de Mesas</f:facet>
+                        <p:column headerText="ID" class="w10">
+                            #{mesa.id}
+                        </p:column>
+                        <p:column headerText="Quatidade de Pessoas" class="w50">
+                            #{mesa.quantidadePessoas}
+                        </p:column>                       
+                        <p:column headerText="Editar" class="w10">
+                            <p:commandButton icon="pi pi-pencil" update="tabs"
+                                             actionListener="#{mesaBean.editar(mesa)}"/>
+                        </p:column>
+                        <p:column headerText="Excluir" class="w10">
+                            <p:commandButton icon="pi pi-times" update="tabs, msgGeral"
+                                             actionListener="#{mesaBean.excluir(mesa)}">
+                                <p:confirm header="Confirmar Exclusão!"
+                                           message="Você realmente deseja excluir a mesa #{mesaBean.idTab}?"
+                                           icon="pi pi-trash"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+                <p:tab title="Formulário" id="novo">
+                    <h:inputHidden value="#{mesaBean.mesa.id}"/>
+                    <h:panelGrid columns="1">                       
+                        <p:outputLabel value="Quantidade de Pessoas" id="lblEmail" for="qtd"/>
+                        <p:inputText id="qtd" value="#{mesaBean.mesa.quantidadePessoas}"/>                                        
+                    </h:panelGrid>
+                    <p:commandButton id="btnSalvar" value="Salvar" icon="pi pi-check"
+                                     update="@form" actionListener="#{mesaBean.salvar}"/>
+                    <p:commandButton id="btnLimpar" value="Limpar" icon="pi pi-trash"
+                                     update="@form"
+                                     actionListener="#{mesaBean.limpar}"/>
+                </p:tab>
+            </p:tabView>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                <p:commandButton value="SIM" type="button" icon="pi pi-check-circle"
+                                 styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton value="NÃO" type="button" icon="pi pi-times"
+                                 styleClass="ui-confirmdialog-no"/>
+            </p:confirmDialog>
+
+
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+

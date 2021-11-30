@@ -1,0 +1,28 @@
+#banner {
+    width: auto;
+    height: 100px;
+}
+#imgBanner{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70%;
+}
+.w100{
+    width: 100%;
+}
+.w95{
+    width: 95%;
+}
+.w80{
+    width: 80%;
+}
+.w50{
+    width: 50%;
+}
+.w20{
+    width: 20%;
+}
+.w10{
+    width: 10%;
+}

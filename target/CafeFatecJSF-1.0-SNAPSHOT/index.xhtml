@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login: Java Café</title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+        <h:outputStylesheet name="layout.css" library="css"/>
+    </h:head>
+    <h:body>
+        <div class="ui-g">
+            <div class="ui-g-1 ui-md-1 ui-lg-1"></div>
+            <div class="ui-g-10 ui-md-10 ui-lg-10">
+                <div class="ui-g" id="banner">
+                    <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-6">
+                        <p:graphicImage name="logo.jpg" library="img" id="imgBanner"/>
+                    </div>
+                    <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+                </div>
+                <div class="ui-g" id="corpo">
+                    <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-6">
+                        <p:panel header="ACESSO RESTRITO"
+                                 footer="Apenas pessoas autorizadas">
+                            <h:form id="frmLogin" prependId="false">
+                                <p:growl id="msgGeral" globalOnly="true" showDetail="true"/>
+                                <h:panelGrid columns="1" class="w100">
+                                    <p:outputLabel value="Login (e-mail):" id="lblEmail" for="email"/>
+                                    <p:inputText id="email" value="#{loginBean.usuario.email}"
+                                                 class="w100"/>
+                                    <p:outputLabel value="Senha:" id="lblSenha" for="senha"/>
+                                    <p:password id="senha" value="#{loginBean.usuario.senha}" class="w100"/>
+                                </h:panelGrid>
+                                <p:commandButton id="btnLogar" value="Logar" icon="pi pi-sign-in"
+                                                 action="#{loginBean.logar}"
+                                                 update="msgGeral, email, senha"/>
+                            </h:form>
+                        </p:panel>
+                    </div>
+                    <div class="ui-g-12 ui-md-3 ui-lg-3"></div>
+                </div>
+                <div class="ui-g" id="rodape">
+                    <div class="ui-g-12 ui-md-8 ui-lg-6">
+                        <p:outputLabel value="Copyright 2021 - Programação WEB"/>
+                    </div>
+                    <div class="ui-g-12 ui-md-4 ui-lg-6">
+                        <p:outputLabel value="Prof. Anderson Pazin"/>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-1 ui-md-1 ui-lg-1"></div>
+        </div>
+    </h:body>
+</html>
+
