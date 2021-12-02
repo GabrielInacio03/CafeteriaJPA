@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-11-27T13:32:53")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-12-01T17:04:31")
 @StaticMetamodel(Mesa.class)
 public class Mesa_ { 
 
